@@ -39,13 +39,13 @@ class MyCache {
                 TimeUnit.MILLISECONDS.sleep(300);
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                rwLock.writeLock().unlock();
-            }
+            } 
             map.put(key, value);
             System.out.println(Thread.currentThread().getName() + "\t" + "写入完成");
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            rwLock.writeLock().unlock();
         }
     }
 
